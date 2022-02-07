@@ -767,9 +767,3 @@ fieldset[disabled] .btn-xl:hover {
     padding-right: 0;
     padding-left: 0;
 }
-.my-project-link{
-    transition: 1s;
-}
-.my-project-link:hover{
-    border: solid 5px orangered;
-}
