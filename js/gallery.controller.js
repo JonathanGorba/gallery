@@ -4,12 +4,12 @@
 $(document).ready(init);
 
 function init() {
-renderProjects();
+    renderProjects();
 }
 
 function renderProjects() {
     const projects = getProjects();
-    var strHTML = projects.map(function (project,idx) {
+    var strHTML = projects.map(function (project, idx) {
         return `
         <div class="col-md-4 col-sm-6 portfolio-item ">
          <a class="portfolio-link" data-toggle="modal" onclick="configModal(${idx})" href="#portfolioModal1">
@@ -30,11 +30,19 @@ function renderProjects() {
     $('.portfolio-container').html(strHTML);
 }
 
-function configModal(idx){
-const project = getProjects()[idx];
-$('.the-only-modal h2').text(project.name);
-$('.the-only-modal .item-intro').text(project.title);
-$('.the-only-modal .category').text(project.labele);
-$('.the-only-modal .the-image').attr('src',project.pic);
-$('.the-only-modal .my-project-link').attr('href',project.url);
+function configModal(idx) {
+    const project = getProjects()[idx];
+    $('.the-only-modal h2').text(project.name);
+    $('.the-only-modal .item-intro').text(project.title);
+    $('.the-only-modal .category').text(project.labele);
+    $('.the-only-modal .the-image').attr('src', project.pic);
+    $('.the-only-modal .my-project-link').attr('href', project.url);
+}
+
+function onSubmitContact() {
+    const subject = $('.form-control-subject');
+    const email = $('.form-control-email');
+    const content = $('.form-control-content');
+    var str = `https://mail.google.com/mail/?view=cm&fs=1&to=${email.val()}&su=${subject.val()}&body=${content.val()}`;
+    window.open(str);
 }
